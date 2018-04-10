@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: dos-wrapper
+
+server:
+  port: 7030
+
+# URL prefix (after domain, before Servlet)
+cxf:
+  path: "/nhsd/doswrapper/ws"
+
+dos:
+  service:
+    url: DummyValue

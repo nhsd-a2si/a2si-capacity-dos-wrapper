@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+
+    <!-- PROPERTIES -->
+    <property name="layout" value="%d{HH:mm:ss.SSS} %-5level [%thread][%logger{0}] %m%n" />
+
+    <property name="dos-wrapper-log-file" value="/var/dos-wrapper/logs/dos-wrapper-log" />
+
+    <property name="soap-messages-log-file" value="/var/dos-wrapper/logs/soap-messages-log" />
+
+    <!-- APPENDERS -->
+    <appender name="a2si-file-appender"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${dos-wrapper-log-file}.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${dos-wrapper-log-file}.%d{yyyy-MM-dd-HH}.log
+            </fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${layout}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="soap-messages-file-appender"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${soap-messages-log-file}.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${soap-messages-log-file}.%d{yyyy-MM-dd-HH}.log
+            </fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${layout}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="console-appender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${layout}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- LOGGERS -->
+    <logger name="com.bjss.nhsd.a2si" level="INFO" >
+        <appender-ref ref="a2si-file-appender"/>
+    </logger>
+
+    <logger name="org.apache.cxf.services" level="WARN" >
+        <appender-ref ref="soap-messages-file-appender"/>
+    </logger>
+
+    <logger name="org.springframework" level="INFO" />
+
+    <root>
+        <appender-ref ref="console-appender" />
+    </root>
+
+</configuration>
