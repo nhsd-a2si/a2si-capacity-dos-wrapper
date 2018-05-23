@@ -70,7 +70,7 @@ public class DosSoap12FaultInInterceptor extends AbstractSoapInterceptor {
             e.printStackTrace();
         }
 
-        soapFault.setMessage(codeAndMessage[1]);
+        soapFault.setMessage(codeAndMessage[0]);
 
 
     }
