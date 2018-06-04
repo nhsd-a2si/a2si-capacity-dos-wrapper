@@ -1,8 +1,8 @@
-package com.bjss.nhsd.a2si.endpoint.doswrapper;
+package com.nhsd.a2si.endpoint.doswrapper;
 
-import com.bjss.nhsd.a2si.capacityinformation.domain.CapacityInformation;
-import com.bjss.nhsd.a2si.client.dos.DosClient;
-import com.bjss.nhsd.a2si.capacityserviceclient.CapacityServiceClient;
+import com.nhsd.a2si.capacityinformation.domain.CapacityInformation;
+import com.nhsd.a2si.client.dos.DosClient;
+import com.nhsd.a2si.capacityserviceclient.CapacityServiceClient;
 import https.nww_pathwaysdos_nhs_uk.app.api.webservices.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

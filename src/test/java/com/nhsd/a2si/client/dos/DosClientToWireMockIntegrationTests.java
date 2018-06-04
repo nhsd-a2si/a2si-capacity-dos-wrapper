@@ -1,6 +1,6 @@
-package com.bjss.nhsd.a2si.client.dos;
+package com.nhsd.a2si.client.dos;
 
-import com.bjss.nhsd.a2si.endpoint.doswrapper.DosWrapperSoapEndpoint;
+import com.nhsd.a2si.endpoint.doswrapper.DosWrapperSoapEndpoint;
 import https.nww_pathwaysdos_nhs_uk.app.api.webservices.*;
 import org.junit.Before;
 import org.junit.Ignore;

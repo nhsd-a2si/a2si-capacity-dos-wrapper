@@ -1,4 +1,4 @@
-package com.bjss.nhsd.a2si.endpoint.doswrapper;
+package com.nhsd.a2si.endpoint.doswrapper;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;

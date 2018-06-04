@@ -4,17 +4,13 @@
     <!-- PROPERTIES -->
     <property name="layout" value="%d{HH:mm:ss.SSS} %-5level [%thread][%logger{0}] %m%n" />
 
-    <property name="dos-wrapper-log-file" value="/var/dos-wrapper/logs/dos-wrapper-log" />
-
-    <property name="soap-messages-log-file" value="/var/dos-wrapper/logs/soap-messages-log" />
-
     <!-- APPENDERS -->
     <appender name="a2si-file-appender"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${dos-wrapper-log-file}.log</File>
+        <File>${LOG_PATH:-logs/a2si}/a2si-dos-wrapper.log</File>
         <rollingPolicy
                 class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${dos-wrapper-log-file}.%d{yyyy-MM-dd-HH}.log
+            <fileNamePattern>${LOG_PATH:-logs/a2si}/a2si-dos-wrapper.%d{yyyy-MM-dd-HH}.log
             </fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
@@ -25,10 +21,10 @@
 
     <appender name="soap-messages-file-appender"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>${soap-messages-log-file}.log</File>
+        <File>${LOG_PATH:-logs/a2si}/a2si-dos-wrapper-soap.log</File>
         <rollingPolicy
                 class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${soap-messages-log-file}.%d{yyyy-MM-dd-HH}.log
+            <fileNamePattern>${LOG_PATH:-logs/a2si}/a2si-dos-wrapper-soap.%d{yyyy-MM-dd-HH}.log
             </fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
@@ -44,7 +40,7 @@
     </appender>
 
     <!-- LOGGERS -->
-    <logger name="com.bjss.nhsd.a2si" level="INFO" >
+    <logger name="com.nhsd.a2si" level="INFO" >
         <appender-ref ref="a2si-file-appender"/>
     </logger>
 

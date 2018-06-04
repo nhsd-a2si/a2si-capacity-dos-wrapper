@@ -1,4 +1,4 @@
-package com.bjss.nhsd.a2si.client.dos;
+package com.nhsd.a2si.client.dos;
 
 import https.nww_pathwaysdos_nhs_uk.app.api.webservices.PathWayServiceSoap;
 import org.apache.cxf.interceptor.LoggingInInterceptor;
