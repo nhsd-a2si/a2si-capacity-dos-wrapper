@@ -1,4 +1,4 @@
-package com.bjss.nhsd.a2si;
+package com.nhsd.a2si;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

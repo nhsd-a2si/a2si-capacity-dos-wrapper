@@ -1,4 +1,4 @@
-package com.bjss.nhsd.a2si.client.dos;
+package com.nhsd.a2si.client.dos;
 
 import org.apache.cxf.binding.soap.SoapMessage;
 import org.apache.cxf.binding.soap.interceptor.AbstractSoapInterceptor;
