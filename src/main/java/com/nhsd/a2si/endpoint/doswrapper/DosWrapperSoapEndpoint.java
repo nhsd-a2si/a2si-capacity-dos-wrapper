@@ -93,7 +93,7 @@ public class DosWrapperSoapEndpoint extends PathWayServiceSoap12Impl {
 
                     if (capacityInformation != null) {
 
-                        serviceCareSummaryDestination.setNotes(capacityInformation.getMessage() + ".\n" + serviceCareSummaryDestination.getNotes());
+                        serviceCareSummaryDestination.setNotes(capacityInformation.getMessage() + ".\n\n" + serviceCareSummaryDestination.getNotes());
 
                     }
 
