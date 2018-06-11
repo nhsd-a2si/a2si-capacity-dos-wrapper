@@ -25,6 +25,6 @@ nbdist/
 
 ### Project Specific Files to Ignore#
 *.log
-dos-wrapper-logs/
+logs/
 /mvnw.cmd
 /mvnw

@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 
-ADD ./target/dos-wrapper-0.0.4-SNAPSHOT.jar dos-wrapper.jar
+ADD ./target/a2si-dos-wrapper-0.0.6-SNAPSHOT.jar dos-wrapper.jar
 
 # Expose 7030, the default port used for Dos Wrapper
 EXPOSE 7030
