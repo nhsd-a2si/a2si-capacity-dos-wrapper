@@ -12,3 +12,35 @@ cxf:
 dos:
   service:
     url: DummyValue
+
+# Spring Boot Actuator configuration
+endpoints:
+  metrics:
+    enabled: false
+  auditevents:
+    enabled: false
+  info:
+    enabled: false
+  mappings:
+    enabled: false
+  beans:
+    enabled: false
+  loggers:
+    enabled: false
+  dump:
+    enabled: false
+  heapdump:
+    enabled: false
+  health:
+    enabled: true
+    id: health
+    path: /healthcheck
+    sensitive: false
+  env:
+    enabled: false
+  configprops:
+    enabled: false
+  autoconfig:
+    enabled: false
+  trace:
+    enabled: false
