@@ -19,3 +19,7 @@ capacity:
         url: http://capacityservicetest-env.smtchzepkk.us-east-1.elasticbeanstalk.com/capacity
         username: dummyValue
         password: dummyValue
+
+server:
+  ssl:
+    enabled: false

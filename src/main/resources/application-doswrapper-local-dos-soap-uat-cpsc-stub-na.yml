@@ -9,3 +9,7 @@ dos:
     url: https://uat.pathwaysdos.nhs.uk/app/api/webservices
 
 # No Configuration is needed for the Stubbed Capacity Service Client
+
+server:
+  ssl:
+    enabled: false
