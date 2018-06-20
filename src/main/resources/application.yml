@@ -3,6 +3,9 @@ spring:
     name: dos-wrapper
 
 server:
+  error:
+    whitelabel:
+      enabled: false
   port: 7030
   ssl:
     key-store: /keystore.jks
@@ -49,3 +52,6 @@ endpoints:
     enabled: false
   trace:
     enabled: false
+
+management:
+  add-application-context-header: false
