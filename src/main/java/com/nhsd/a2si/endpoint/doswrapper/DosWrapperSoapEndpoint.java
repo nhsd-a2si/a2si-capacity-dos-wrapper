@@ -96,8 +96,11 @@ public class DosWrapperSoapEndpoint extends PathWayServiceSoap12Impl {
 
                     countOfResponses++;
                     if (capacityInformation != null) {
-                    		countOfNonNullResponses++;
-                        serviceCareSummaryDestination.setNotes(capacityInformation.getMessage() + ".\n\n" + serviceCareSummaryDestination.getNotes());
+                    		String sMessage = capacityInformation.getMessage();
+                    		if (sMessage != null && sMessage.length() > 0) {
+	                    		countOfNonNullResponses++;
+	                    		serviceCareSummaryDestination.setNotes(sMessage + ".\n\n" + serviceCareSummaryDestination.getNotes());
+                    		}
                     }
 
                 } catch(ResourceAccessException resourceAccessException) {
