@@ -18,7 +18,8 @@ public class SoapPrefixResponseInterceptor extends AbstractSoapInterceptor {
         Map<String, String> stringStringHashMap = new HashMap<>();
         stringStringHashMap.put("env", "http://www.w3.org/2003/05/soap-envelope");
         
-        SoapFault soapFault = (SoapFault) message.getContent(Exception.class);
+        //SoapFault soapFault = (SoapFault) message.getContent(Exception.class);
+        Exception soapFault = (Exception) message.getContent(Exception.class);
         if (soapFault ==  null) {
     			message.put("org.apache.cxf.stax.force-start-document", Boolean.TRUE);
     			stringStringHashMap.put("ns1", "https://nww.pathwaysdos.nhs.uk/app/api/webservices");

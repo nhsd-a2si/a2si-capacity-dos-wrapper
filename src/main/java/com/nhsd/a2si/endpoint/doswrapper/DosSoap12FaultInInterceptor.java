@@ -55,7 +55,14 @@ public class DosSoap12FaultInInterceptor extends AbstractPhaseInterceptor<Messag
 		    	    CachedOutputStream csnew = (CachedOutputStream) message.getContent(OutputStream.class);
 		
 		    	    String soapMessage = IOUtils.toString(csnew.getInputStream());	    	    
-		    	    SoapFault soapFault = (SoapFault) message.getContent(Exception.class);
+		    	    //SoapFault soapFault = (SoapFault) message.getContent(Exception.class);
+		    	    Exception soapFault = (Exception) message.getContent(Exception.class);
+		    	    String dosMessage = "";
+		    	    if (soapFault instanceof SoapFault) {
+		    	    	dosMessage = ((SoapFault) soapFault).getMessage();
+		    	    } else {
+		    	    	dosMessage = "xxx--" + soapFault.getMessage();
+		    	    }
 		    	    if (soapFault != null) {
 		    	    	// Add xml header if it's not there
 		    	    	if (!soapMessage.startsWith("<?xml")) {
@@ -65,7 +72,7 @@ public class DosSoap12FaultInInterceptor extends AbstractPhaseInterceptor<Messag
 		    	    	
 		    	    	// Code and Message are in the fault separated by "--"
 		    	    	// Split and alter the output xml
-		    	    		String dosMessage = soapFault.getMessage();
+		    	    	//String dosMessage = soapFault.getMessage();
 		    	        String[] codeAndMessage = dosMessage.split("--");		    	    	
 		    	    	
 		    	        if (codeAndMessage.length > 0) {
@@ -74,6 +81,7 @@ public class DosSoap12FaultInInterceptor extends AbstractPhaseInterceptor<Messag
 			    	    			soapMessage = soapMessage.replace(dosMessage, codeAndMessage[1]);	
 			    	    			soapMessage = soapMessage.replaceAll("<env:Text xml:lang=\"en-GB\">", "<env:Text>");
 			    	    			soapMessage = soapMessage.replaceAll("<env:Text xml:lang=\"en-US\">", "<env:Text>");
+			    	    			soapMessage = soapMessage.replaceAll("<env:Text xml:lang=\"en\">", "<env:Text>");
 		    	    			}
 		    	        }
 		    	    }		    	    
