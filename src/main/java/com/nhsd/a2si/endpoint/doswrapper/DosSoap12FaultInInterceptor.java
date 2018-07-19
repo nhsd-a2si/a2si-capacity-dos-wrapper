@@ -73,6 +73,7 @@ public class DosSoap12FaultInInterceptor extends AbstractPhaseInterceptor<Messag
 		    	    			if (codeAndMessage.length > 1) {
 			    	    			soapMessage = soapMessage.replace(dosMessage, codeAndMessage[1]);	
 			    	    			soapMessage = soapMessage.replaceAll("<env:Text xml:lang=\"en-GB\">", "<env:Text>");
+			    	    			soapMessage = soapMessage.replaceAll("<env:Text xml:lang=\"en-US\">", "<env:Text>");
 		    	    			}
 		    	        }
 		    	    }		    	    
