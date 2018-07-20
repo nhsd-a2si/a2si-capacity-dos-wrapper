@@ -75,6 +75,9 @@ public class DosWrapperSoapEndpoint extends PathWayServiceSoap12Impl {
 
         boolean capacityServiceResponsive = true;
 
+        int countOfResponses = 0;
+        int countOfNonNullResponses = 0;
+        int countOfServices = newCheckCapacitySummaryResult.value.getServiceCareSummaryDestination().size();
         for (ServiceCareSummaryDestination serviceCareSummaryDestination :
                 newCheckCapacitySummaryResult.value.getServiceCareSummaryDestination()) {
 
@@ -91,10 +94,13 @@ public class DosWrapperSoapEndpoint extends PathWayServiceSoap12Impl {
                     logger.debug("Got Capacity Information for Service Id: {} with value of: {}",
                             serviceCareSummaryDestination.getId(), capacityInformation);
 
+                    countOfResponses++;
                     if (capacityInformation != null) {
-
-                        serviceCareSummaryDestination.setNotes(capacityInformation.getMessage() + ".\n\n" + serviceCareSummaryDestination.getNotes());
-
+                    		String sMessage = capacityInformation.getMessage();
+                    		if (sMessage != null && sMessage.length() > 0) {
+	                    		countOfNonNullResponses++;
+	                    		serviceCareSummaryDestination.setNotes(sMessage + ".\n\n" + serviceCareSummaryDestination.getNotes());
+                    		}
                     }
 
                 } catch(ResourceAccessException resourceAccessException) {
@@ -108,6 +114,12 @@ public class DosWrapperSoapEndpoint extends PathWayServiceSoap12Impl {
             }
         }
 
+        if (capacityServiceResponsive) {
+        		logger.info("DOS returned {} services, of which {} had waiting times (TransactionId={}, CaseRef={}, CaseID={})", countOfServices, countOfNonNullResponses, transactionId.value, c.getCaseRef(), c.getCaseId());
+        } else {
+    			logger.info("DOS returned {} services, of which {} returned waiting times, however the capacity service became unresponsive and only {} were checked for waiting times (TransactionId={}, CaseRef={}, CaseID={})", countOfServices, countOfNonNullResponses, countOfResponses, transactionId.value, c.getCaseRef(), c.getCaseId());
+        }
+        
         checkCapacitySummaryResult.value = newCheckCapacitySummaryResult.value;
 
     }
