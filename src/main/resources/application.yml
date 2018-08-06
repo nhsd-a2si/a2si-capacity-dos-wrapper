@@ -15,7 +15,7 @@ server:
 
 # URL prefix (after domain, before Servlet)
 cxf:
-  path: "/nhsd/doswrapper/ws"
+  path: "/app/api"
 
 dos:
   service:

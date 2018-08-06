@@ -37,7 +37,7 @@ public class DosWrapperSoapEndpointConfiguration {
         //set the url suffix the endpoint will use, after the cxf.path value defined in application.properties
         // the actual full url for the service will therefore be something like:
         //     http://localhost:9090/nhsd/doswrapper/ws/pathwayService
-        endpoint.publish("/pathwayService");
+        endpoint.publish("/webservices");
 
         endpoint.getOutFaultInterceptors().add(new DosSoap12FaultInInterceptor());
 
