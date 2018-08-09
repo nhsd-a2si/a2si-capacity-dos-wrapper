@@ -32,7 +32,6 @@ public class DosSoap12FaultPostUnmarshalInInterceptor extends AbstractSoapInterc
         String dosMessage = fault.getMessage();
 
         fault.setFaultCode(SOAPConstants.SOAP_RECEIVER_FAULT);
-        fault.setMessage(dosErrorCode + "--" + dosMessage);
     }
 
 }
